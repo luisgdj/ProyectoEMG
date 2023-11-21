@@ -1,11 +1,12 @@
 package ui;
 
 import userManager.JPAUserManager;
-import pojos.*;
+import ifaces.UserManager;
+import pojos.User;
 
 public abstract class LogInMenu {
 
-	private static JPAUserManager userMan;
+	private static UserManager userMan;
 
 	public static void main(String[] Args) {
 
@@ -18,7 +19,7 @@ public abstract class LogInMenu {
 			String password = Utilities.readString(" -Password: ");
 
 			User user = userMan.logIn(username, password);
-			// User user = userMan.logIn("manager", "default0", "manager@bloodBank.com");
+			// User user = userMan.logIn("doctor", "default0", "doctor@hospital.com");
 
 			if (user != null) {
 				if (user.getRole().getName().equals("doctor")) {

@@ -4,7 +4,7 @@
 	<!-- Persistence Provider -->
 	<!-- RESOURCE-LOCAL: Application-managed transactions -->
 	<!-- JTA: Container-managed transactions -->
-	<persistence-unit name="emg-provider" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="database-provider" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
 		<!-- Entity Class -->

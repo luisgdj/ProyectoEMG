@@ -7,26 +7,27 @@ import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import ifaces.UserManager;
 import pojos.Role;
 import pojos.User;
 
-public class JPAUserManager {
+public class JPAUserManager implements UserManager{
 
 	EntityManager em;
 
 	public JPAUserManager() {
 
-		em = Persistence.createEntityManagerFactory("emg-provider").createEntityManager();
+		em = Persistence.createEntityManagerFactory("database-provider").createEntityManager();
 		em.getTransaction().begin();
 		em.createNativeQuery("PRAGMA foreign_keys=ON").executeUpdate();
 		em.getTransaction().commit();
 
 		// Create the needed roles
 		if (this.getRoles().isEmpty()) {
-			Role manager = new Role("doctor");
-			Role nurse = new Role("patient");
-			this.createRole(manager);
-			this.createRole(nurse);
+			Role doctor = new Role("doctor");
+			Role patient = new Role("patient");
+			this.createRole(doctor);
+			this.createRole(patient);
 
 			User user = new User("doctor", "default0", "doctor@hospital.com");
 			register(user);
@@ -35,6 +36,7 @@ public class JPAUserManager {
 		}
 	}
 
+	@Override
 	public void register(User user) {
 		em.getTransaction().begin();
 		em.persist(user);
