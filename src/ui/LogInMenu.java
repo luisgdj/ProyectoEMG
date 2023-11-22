@@ -20,7 +20,7 @@ public abstract class LogInMenu {
 
 			User user = userMan.logIn(username, password);
 			// User user = userMan.logIn("doctor", "default0", "doctor@hospital.com");
-
+			
 			if (user != null) {
 				if (user.getRole().getName().equals("doctor")) {
 					DoctorMenu.menu();
