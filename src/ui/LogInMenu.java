@@ -11,7 +11,7 @@ public abstract class LogInMenu {
 	public static void main(String[] Args) {
 
 		userMan = new JPAUserManager();
-		System.out.print("\nWelcome to ECG analytics!");
+		System.out.print("\nWelcome to ECG analytics!"); 
 
 		while (true) {
 			System.out.println("\nLog-In menu:");
