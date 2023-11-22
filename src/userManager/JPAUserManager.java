@@ -11,7 +11,7 @@ import ifaces.UserManager;
 import pojos.Role;
 import pojos.User;
 
-public class JPAUserManager implements UserManager{
+public class JPAUserManager implements UserManager {
 
 	EntityManager em;
 
@@ -24,14 +24,14 @@ public class JPAUserManager implements UserManager{
 
 		// Create the needed roles
 		if (this.getRoles().isEmpty()) {
-			Role doctor = new Role("doctor");
-			Role patient = new Role("patient");
+			Role patient = new Role("client");
+			Role doctor = new Role("server");
 			this.createRole(doctor);
 			this.createRole(patient);
 
 			User user = new User("doctor", "default0", "doctor@hospital.com");
 			register(user);
-			Role role = getRole("doctor");
+			Role role = getRole("server");
 			assignRole(user, role);
 		}
 	}
@@ -43,12 +43,14 @@ public class JPAUserManager implements UserManager{
 		em.getTransaction().commit();
 	}
 	
+	@Override
 	public void createRole(Role role) {
 		em.getTransaction().begin();
 		em.persist(role);
 		em.getTransaction().commit();
 	}
-
+	
+	@Override
 	public void assignRole(User user, Role role) {
 		em.getTransaction().begin();
 		user.setRole(role);
@@ -56,6 +58,7 @@ public class JPAUserManager implements UserManager{
 		em.getTransaction().commit();
 	}
 	
+	@Override
 	public Role getRole(String name) {
 		Query q = em.createNativeQuery("SELECT * FROM roles WHERE name LIKE ?", Role.class);
 		q.setParameter(1, name);
@@ -63,12 +66,13 @@ public class JPAUserManager implements UserManager{
 		return r;
 	}
 		
+	@Override
 	public List<Role> getRoles() {
 		Query q = em.createNativeQuery("SELECT * FROM roles", Role.class);
 		List<Role> roles = (List<Role>) q.getResultList();
 		return roles;
 	}
-		
+	
 	public User logIn(String username, String password) {
 		try {
 			Query q = em.createNativeQuery("SELECT * FROM users WHERE username = ? AND password = ?", User.class);
@@ -76,12 +80,13 @@ public class JPAUserManager implements UserManager{
 			q.setParameter(2, password);
 			User user = (User) q.getSingleResult();
 			return user;
-				
+		
 		} catch (NoResultException e) {
 			return null;
 		}
 	}
 		
+	@Override
 	public User changePassword(User user, String newPassword) {
 			
 		try {
