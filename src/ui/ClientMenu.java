@@ -1,6 +1,6 @@
 package ui;
 
-public abstract class PatientMenu {
+public abstract class ClientMenu {
 
 	public static void menu(String email) {
 

@@ -1,6 +1,6 @@
 package ui;
 
-public abstract class DoctorMenu {
+public abstract class ServerMenu {
 
 	public static void menu() {
 

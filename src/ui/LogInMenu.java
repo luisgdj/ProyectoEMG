@@ -19,14 +19,14 @@ public abstract class LogInMenu {
 			String password = Utilities.readString(" -Password: ");
 
 			User user = userMan.logIn(username, password);
-			// User user = userMan.logIn("doctor", "default0", "doctor@hospital.com");
+			// User user = userMan.logIn("server", "default0", "doctor@hospital.com");
 			
 			if (user != null) {
-				if (user.getRole().getName().equals("doctor")) {
-					DoctorMenu.menu();
+				if (user.getRole().getName().equals("server")) {
+					ServerMenu.menu();
 				}
-				if (user.getRole().getName().equals("patient")) {
-					PatientMenu.menu(user.getEmail());
+				if (user.getRole().getName().equals("client")) {
+					ClientMenu.menu(user.getEmail());
 				}
 			} else {
 				System.out.println("Error: Wrong username or password.");
