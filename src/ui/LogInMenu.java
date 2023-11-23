@@ -7,7 +7,6 @@ import pojos.User;
 public abstract class LogInMenu {
 
 	private static UserManager userMan;
-	//
 
 	public static void main(String[] Args) {
 
