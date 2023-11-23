@@ -18,13 +18,12 @@ public class BitalinoDemo {
         BITalino bitalino = null;
         try {
             bitalino = new BITalino();
-            // Code to find Devices
+            //Code to find Devices
             //Only works on some OS
             Vector<RemoteDevice> devices = bitalino.findDevices();
             System.out.println(devices);
 
-            //You need TO CHANGE THE MAC ADDRESS
-            //You should have the MAC ADDRESS in a sticker in the Bitalino
+            //MAC adress of our BITalino:
             String macAddress = "20:17:11:20:51:27";
             
             //Sampling rate, should be 10, 100 or 1000
@@ -37,23 +36,23 @@ public class BitalinoDemo {
             bitalino.start(channelsToAcquire);
 
             //Read in total 10000000 times
-            for (int j = 0; j < 10000000; j++) {
+            for (int i=0; i<10000000; i++) {
 
-                //Each time read a block of 10 samples 
+                //Each time read a block of 10 samples
                 int block_size=10;
                 frame = bitalino.read(block_size);
 
                 System.out.println("size block: " + frame.length);
 
                 //Print the samples
-                for (int i = 0; i < frame.length; i++) {
-                    System.out.println((j * block_size + i) + " seq: " + frame[i].seq + " "
-                            + frame[i].analog[0] + " "
-                            + frame[i].analog[1] + " "
-                    //  + frame[i].analog[2] + " "
-                    //  + frame[i].analog[3] + " "
-                    //  + frame[i].analog[4] + " "
-                    //  + frame[i].analog[5]
+                for (int j = 0; j < frame.length; j++) {
+                    System.out.println((i * block_size + j) + " seq: " + frame[j].seq + " "
+                            + frame[j].analog[0] + " "
+                            + frame[j].analog[1] + " "
+                    //  + frame[j].analog[2] + " "
+                    //  + frame[j].analog[3] + " "
+                    //  + frame[j].analog[4] + " "
+                    //  + frame[j].analog[5]
                     );
 
                 }

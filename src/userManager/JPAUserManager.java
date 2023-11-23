@@ -29,7 +29,7 @@ public class JPAUserManager implements UserManager {
 			this.createRole(doctor);
 			this.createRole(patient);
 
-			User user = new User("doctor", "default0", "doctor@hospital.com");
+			User user = new User("server", "default0", "server@hospital.com");
 			register(user);
 			Role role = getRole("server");
 			assignRole(user, role);
