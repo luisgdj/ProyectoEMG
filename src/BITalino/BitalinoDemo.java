@@ -26,21 +26,20 @@ public class BitalinoDemo {
             //MAC adress of our BITalino:
             String macAddress = "20:17:11:20:51:27";
             
-            //Sampling rate, should be 10, 100 or 1000
-            int SamplingRate = 10;
+            //Sampling rate, should be 10, 100 or 1000, we choose 100 to be precisely (100 samples/s)
+            int SamplingRate = 100;
             bitalino.open(macAddress, SamplingRate);
 
-            // Start acquisition on analog channels A2 and A6
-            // For example, If you want A1, A3 and A4 you should use {0,2,3}
-            int[] channelsToAcquire = {1, 5};
+            //we create a connection with bitalino in channel A1, that corresponds to index 0 (related to EMG)           
+            int[] channelsToAcquire = {0};
             bitalino.start(channelsToAcquire);
 
             //Read in total 10000000 times
             for (int i=0; i<10000000; i++) {
 
-                //Each time read a block of 10 samples
-                int block_size=10;
-                frame = bitalino.read(block_size);
+                //Each time read a block of 100 samples (same as sample rate)
+                int block_size=100;
+                frame = bitalino.read(block_size); //frame is an array of the samples measured
 
                 System.out.println("size block: " + frame.length);
 
@@ -48,13 +47,7 @@ public class BitalinoDemo {
                 for (int j = 0; j < frame.length; j++) {
                     System.out.println((i * block_size + j) + " seq: " + frame[j].seq + " "
                             + frame[j].analog[0] + " "
-                            + frame[j].analog[1] + " "
-                    //  + frame[j].analog[2] + " "
-                    //  + frame[j].analog[3] + " "
-                    //  + frame[j].analog[4] + " "
-                    //  + frame[j].analog[5]
                     );
-
                 }
             }
             //stop acquisition
@@ -65,7 +58,7 @@ public class BitalinoDemo {
             Logger.getLogger(BitalinoDemo.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
-                //close bluetooth connection
+                //The connection of bitalino is stoped when bluetooth is disconnected
                 if (bitalino != null) {
                     bitalino.close();
                 }
