@@ -1,10 +1,11 @@
-<<<<<<< HEAD
-/pojos/
-/ui/
 /BITalino/
+/META-INF/
+/ifaces/
+/pojos/
+/threads/
+<<<<<<< HEAD
+/archivos/
 =======
 /ui/
->>>>>>> branch 'master' of https://github.com/luisgdj/ProyectoEMG
 /userManager/
-/threads/
-/archivos/
+>>>>>>> branch 'master' of https://github.com/luisgdj/ProyectoEMG

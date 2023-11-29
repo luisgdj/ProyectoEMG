@@ -26,6 +26,7 @@ public class BitalinoDemo {
             //MAC adress of our BITalino:
             String macAddress = "20:17:11:20:51:27";
             
+            
             //Sampling rate, should be 10, 100 or 1000, we choose 100 to be precisely (100 samples/s)
             int SamplingRate = 100;
             bitalino.open(macAddress, SamplingRate);
@@ -40,7 +41,7 @@ public class BitalinoDemo {
                 //Each time read a block of 100 samples (same as sample rate)
                 int block_size=100;
                 frame = bitalino.read(block_size); //frame is an array of the samples measured
-
+                bitalino.writeFrameToFile(frame);
                 System.out.println("size block: " + frame.length);
 
                 //Print the samples

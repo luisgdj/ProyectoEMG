@@ -6,7 +6,7 @@ import java.net.SocketException;
 public class UdpThread {
 
     public static void main(String[] args) {
-        /* Crear instancias de las clases que implementan Runnable
+        /* Crear instancias de las clases que implementan Runnable:
     	int serverPort = 9000;
         ServerUDP server = new ServerUDP(serverPort);
         server.startServer();
@@ -28,7 +28,6 @@ public class UdpThread {
 	        serverThread.start();
 	        
 		} catch (SocketException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
