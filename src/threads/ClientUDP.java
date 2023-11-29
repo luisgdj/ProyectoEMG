@@ -16,21 +16,21 @@ public class ClientUDP implements Runnable {
 		 this.socket = new DatagramSocket(port);
 	     this.buffer = data.getBytes();
 	 }
-	
-	@Override
-	public void run() {
+	     
+	 @Override
+	 public void run() {
 		
-		try {
-			InetAddress destination = InetAddress.getByName("localhost");
-			createdPacket = new DatagramPacket(buffer, buffer.length, destination, 9000);
-        	socket.send(createdPacket);
-        	
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (socket != null && !socket.isClosed()) {
-                socket.close();
-            }
-		}   
-	}
+		 try {
+			 InetAddress destination = InetAddress.getByName("localhost");
+			 createdPacket = new DatagramPacket(buffer, buffer.length, destination, 9000);
+			 socket.send(createdPacket);
+		 
+		 } catch (IOException e) {
+		     e.printStackTrace();
+		 } finally {
+			 if (socket != null && !socket.isClosed()) {
+                 socket.close();
+             }
+		 }   
+	 }
 }
