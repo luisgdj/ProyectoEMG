@@ -1,8 +1,11 @@
 package BITalino;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Vector;
 import javax.bluetooth.RemoteDevice;
 import javax.microedition.io.Connector;
@@ -445,5 +448,20 @@ public class BITalino {
 		}
 		
 	}
+	public void writeFrameToFile(Frame[] frames) throws FileNotFoundException {
+		try {
+		File archivos = new File("misc\\prueba.txt");
+		PrintWriter pw = new PrintWriter(archivos);
+		
+		for (Frame frame : frames) {
+			pw.println("Secuencia de datos" + frame.seq);
+		}
+		pw.close();
+		
+		
+	} catch(FileNotFoundException fnf) {
+		throw new FileNotFoundException();
+	}
+}
 	
 }
