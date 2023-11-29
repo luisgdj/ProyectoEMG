@@ -5,7 +5,7 @@ public abstract class ClientMenu {
 	public static void menu(String email) {
 
 		while (true) {
-			System.out.println("\nECG signal (patient menu: " + email + ")" 
+			System.out.println("\nEMG signal (patient menu: " + email + ")" 
 					+ "\n 1. View signal"
 					+ "\n 2. _____________" 
 					+ "\n 0. Log out");

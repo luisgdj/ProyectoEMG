@@ -5,7 +5,7 @@ public abstract class ServerMenu {
 	public static void menu() {
 
 		while (true) {
-			System.out.println("\nECG signal:" 
+			System.out.println("\nHospital menu (EMG signal):" 
 					+ "\n 1. Register patient"
 					+ "\n 2. Change password"
 					+ "\n 3. ____________"

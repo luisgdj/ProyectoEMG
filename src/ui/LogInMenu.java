@@ -11,7 +11,7 @@ public abstract class LogInMenu {
 	public static void main(String[] Args) {
 
 		userMan = new JPAUserManager();
-		System.out.print("\nWelcome to ECG analytics!");
+		System.out.print("\nWelcome to EMG analytics!");
 
 		while (true) {
 			System.out.println("\nLog-In menu:");
@@ -19,7 +19,7 @@ public abstract class LogInMenu {
 			String password = Utilities.readString(" -Password: ");
 
 			User user = userMan.logIn(username, password);
-			// User user = userMan.logIn("server", "default0", "doctor@hospital.com");
+			// User user = userMan.logIn("server", "default0", "server@hospital.com");
 			
 			if (user != null) {
 				if (user.getRole().getName().equals("server")) {
