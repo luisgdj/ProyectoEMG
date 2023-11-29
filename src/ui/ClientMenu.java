@@ -65,7 +65,7 @@ public abstract class ClientMenu {
 		int port = 9000;
 		try {
 			Socket socket = new Socket(serverIP, port);
-		    File file = new File("misc\\FileToRead.txt");
+		    File file = new File("misc\\FileForServer.txt");
 		    ClientTCP server = new ClientTCP(socket, file);
 		    
 		} catch (UnknownHostException e) {
