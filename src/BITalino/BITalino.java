@@ -448,20 +448,13 @@ public class BITalino {
 		}
 		
 	}
-	public void writeFrameToFile(Frame[] frames) throws FileNotFoundException {
-		try {
-		File archivos = new File("misc\\prueba.txt");
-		PrintWriter pw = new PrintWriter(archivos);
+	public void writeFrameToFile(File file, Frame[] frames) throws FileNotFoundException {
 		
+		PrintWriter pw = new PrintWriter(file);
+		pw.println("Secuencia de datos Bitalino:");
 		for (Frame frame : frames) {
-			pw.println("Secuencia de datos" + frame.seq);
+			pw.println(frame.seq);
 		}
 		pw.close();
-		
-		
-	} catch(FileNotFoundException fnf) {
-		throw new FileNotFoundException();
 	}
-}
-	
 }
