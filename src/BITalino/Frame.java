@@ -1,5 +1,9 @@
 package BITalino;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 /// A frame returned by BITalino.read()
 public class Frame {
         /// CRC4 check function result for the frame
