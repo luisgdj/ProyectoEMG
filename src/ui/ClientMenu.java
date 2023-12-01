@@ -13,7 +13,7 @@ import javax.bluetooth.RemoteDevice;
 
 import BITalino.BITalino;
 import BITalino.BITalinoException;
-import BITalino.BitalinoDemo;
+import BITalino.Frame;
 import threads.ClientTCP;
 
 public abstract class ClientMenu {
@@ -105,6 +105,7 @@ public abstract class ClientMenu {
 	private static void recordBitalinoData(File file, String macAddress) {
 		
 		BITalino bitalino = null;
+		Frame[] frame;
         try {
         	bitalino = new BITalino();
     		Vector<RemoteDevice> devices = bitalino.findDevices();
@@ -133,9 +134,9 @@ public abstract class ClientMenu {
             bitalino.stop();
             
         } catch (BITalinoException ex) {
-            Logger.getLogger(BitalinoDemo.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         } catch (Throwable ex) {
-            Logger.getLogger(BitalinoDemo.class.getName()).log(Level.SEVERE, null, ex);
+        	ex.printStackTrace();
         } finally {
             try {
                 //The connection of bitalino is stoped when bluetooth is disconnected
@@ -143,7 +144,7 @@ public abstract class ClientMenu {
                     bitalino.close();
                 }
             } catch (BITalinoException ex) {
-                Logger.getLogger(BitalinoDemo.class.getName()).log(Level.SEVERE, null, ex);
+            	ex.printStackTrace();
             }
         }
 	}
