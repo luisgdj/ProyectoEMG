@@ -1,18 +1,7 @@
 package pojos;
 
-import java.io.File;
 import java.sql.Date;
 import java.util.Objects;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.bluetooth.RemoteDevice;
-
-import BITalino.BITalino;
-import BITalino.BITalinoException;
-import BITalino.BitalinoDemo;
-import BITalino.Frame;
 
 public class Patient {
 
@@ -22,7 +11,6 @@ public class Patient {
 	private String condition;
 	private Date dob;
 	private long ssn;
-	private Frame[] frame;
 	//private EMGSignal signal;
 
 	public Patient(String name, String surname, String condition, Date dob, long ssn) {
@@ -81,8 +69,6 @@ public class Patient {
 	public void setSsn(long ssn) {
 		this.ssn = ssn;
 	}
-
-	
 
 	@Override
 	public int hashCode() {
