@@ -4,14 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.LinkedList;
-import java.util.Vector;
 
-import javax.bluetooth.RemoteDevice;
-
-import BITalino.BITalino;
-import BITalino.BITalinoException;
-import BITalino.Frame;
 import pojos.Patient;
 import threads.ClientTCP;
 
@@ -47,13 +40,13 @@ public abstract class ClientMenu {
 					String macAddress = Utilities.readString("   Bitalino MAC address: ");
 					//macAddress = "20:17:11:20:51:27"
 					int minutes = Utilities.readInteger("   Duration: ");
-					p.recordBitalinoData(macAddress);
+					p.recordBitalinoData(macAddress); //IMPLEMENTAR DURACION
 					break;
 				}
 				case 2: {
 					//enviar datos (file) al servidor
 					if(file != null) {
-						sendDataToServer();
+						file = sendDataToServer();
 					}else {
 						System.out.println("ERROR: No data has been recorded yet.");
 					}
@@ -79,18 +72,20 @@ public abstract class ClientMenu {
 	}
 
 	//OPTION 2:
-	private static void sendDataToServer(File file) {
+	private static File sendDataToServer() {
 		//Sent file to server:
 		String serverIP = "10.60.85.53";
+		File file = new File("/misc/FileForServer.txt");
 		int port = 9000;
 		try {
 			Socket socket = new Socket(serverIP, port);
 		    ClientTCP server = new ClientTCP(socket, file);
-		    
+		    return file;
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 }

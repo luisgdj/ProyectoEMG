@@ -21,16 +21,31 @@ public class ServerTCP implements Runnable {
             inputStream = socket.getInputStream();
             while ((byteRead = inputStream.read()) != -1) {
                 char caracter = (char) byteRead;
-                System.out.print(caracter);
-                // What if I write in a second file instead???
+                if(byteRead == -1 || byteRead == 'x') {
+                	System.out.println("Character reception finished!");
+                	//break;
+                }else {
+                	System.out.print(caracter);
+                }
             }
             inputStream.close();
         	socket.close();
         	
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-        	
+        }
+    }
+    
+    private static void releaseResourcesClient(InputStream inputStream, Socket socket) {
+        try {
+            inputStream.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            socket.close();
+        } catch (IOException ex) {
+        	ex.printStackTrace();
         }
     }
 }
