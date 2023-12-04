@@ -1,6 +1,6 @@
 package ui;
 
-import userManager.JPAUserManager;
+import dataBaseManager.JPAUserManager;
 import ifaces.UserManager;
 import pojos.User;
 

@@ -3,6 +3,7 @@ package pojos;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -21,23 +22,35 @@ public class Patient {
 	private String name;
 	private String surname;
 	private Date dob;
+	private String email;
 	private LinkedList<String> symptoms;
 	private Frame[] frame;
-	
 
-	public Patient(String name, String surname, String condition, Date dob) {
+	public Patient(Integer id, String name, String surname, String condition, Date dob, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.dob = dob;
+		this.email = email;
+		this.symptoms = new LinkedList<>();
+	}
+	
+	public Patient(Integer id, String name, String surname, Date dob, String email, LinkedList<String> s, Frame[] f) {
 		super();
 		this.name = name;
 		this.surname = surname;
 		this.dob = dob;
-		this.symptoms = new LinkedList<>();
+		this.email = email;
+		this.symptoms = s;
+		this.frame = f;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -65,6 +78,30 @@ public class Patient {
 		this.dob = dob;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public LinkedList<String> getSymptoms() {
+		return symptoms;
+	}
+
+	public void setSymptoms(LinkedList<String> symptoms) {
+		this.symptoms = symptoms;
+	}
+
+	public Frame[] getFrame() {
+		return frame;
+	}
+
+	public void setFrame(Frame[] frame) {
+		this.frame = frame;
+	}
+
 	public void addSymptom(String s) {
 		symptoms.add(s);
 	}

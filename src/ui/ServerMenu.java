@@ -15,9 +15,8 @@ public abstract class ServerMenu {
 		try {
 	    	ServerSocket serverSocket = new ServerSocket(9000);
 	        while (true) {
-	            //This executes when we have a client
-	            Socket socket;
-				socket = serverSocket.accept();
+	            //Estas dos lineas no permiten usar el menu a la vez (ARREGLAR)
+	            Socket socket = serverSocket.accept();
 	            new Thread(new ServerTCP(socket)).start();
 	            
 	            System.out.println("Sever conection stablished!");
