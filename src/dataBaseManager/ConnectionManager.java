@@ -31,7 +31,7 @@ public class ConnectionManager {
 		return c;
 	}
 
-	public static PatientManager getNurseMan() {
+	public static PatientManager getPatientMan() {
 		return patientMan;
 	}
 

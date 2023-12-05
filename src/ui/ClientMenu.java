@@ -5,14 +5,24 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import dataBaseManager.ConnectionManager;
+import ifaces.PatientManager;
 import pojos.Patient;
 import threads.ClientTCP;
 
 public abstract class ClientMenu {
 
+	private static PatientManager patientMan;
+	private static Patient p;
+	
 	public static void menu(String email) {
 
 		File file = null;
+		ConnectionManager conMan = new ConnectionManager();
+
+		patientMan = conMan.getPatientMan();
+		p = patientMan.getPatientByEmail(email);
+		
 		Patient p = null; //HAY QUE ALMACENAR PACIENTES EN BASE DE DATOS
 		while (true) {
 			//ALS: Amyotrophic Lateral Sclerosis (ELA)
