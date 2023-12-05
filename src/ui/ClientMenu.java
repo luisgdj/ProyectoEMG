@@ -1,6 +1,7 @@
 package ui;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -56,9 +57,9 @@ public abstract class ClientMenu {
 				}
 				case 2: {
 					//enviar datos (file) al servidor
-					if(file != null) {
-						file = sendDataToServer();
-					}else {
+					try {
+						file = p.almacenarDatosEnFichero();
+					} catch (FileNotFoundException e) {
 						System.out.println("ERROR: No data has been recorded yet.");
 					}
 					break;
