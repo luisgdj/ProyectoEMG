@@ -20,7 +20,7 @@ public abstract class ClientMenu {
 	 
 	public static void menu(String email) {
 
-		File file = null;
+		//File file = null;
 		//ConnectionManager conMan = new ConnectionManager();
  
 		//patientMan = conMan.getPatientMan();
@@ -60,7 +60,7 @@ public abstract class ClientMenu {
 				case 2: {
 					//enviar datos (file) al servidor
 					try {
-						file = p.almacenarDatosEnFichero();
+						File file = p.almacenarDatosEnFichero();
 						sendDataToServer(file);
 					} catch (FileNotFoundException e) {
 						System.out.println("ERROR: No data has been recorded yet.");
