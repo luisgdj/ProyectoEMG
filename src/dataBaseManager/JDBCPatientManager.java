@@ -32,7 +32,7 @@ public class JDBCPatientManager implements PatientManager {
 			p.setString(1, patient.getName());
 			p.setString(2, patient.getSurname());
 			p.setString(3, patient.getEmail());
-			p.setDate(4, patient.getDob());
+			p.setDate(4, (Date) patient.getDob());
 
 			p.executeUpdate();
 			p.close();

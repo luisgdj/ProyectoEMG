@@ -34,7 +34,7 @@ public class JPAUserManager implements UserManager {
 			Role role = getRole("server");
 			assignRole(user, role);
 			
-			User user2 = new User("client", "default0", "client@hospital.com");
+			User user2 = new User("client", "ok", "client@hospital.com");
 			register(user2);
 			Role role2 = getRole("client");
 			assignRole(user2, role2);

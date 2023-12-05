@@ -15,16 +15,18 @@ import threads.ClientTCP;
 
 public abstract class ClientMenu {
 
-	private static PatientManager patientMan;
+	//private static PatientManager patientMan;
 	private static Patient p;
-	
+	 
 	public static void menu(String email) {
 
 		File file = null;
-		//ConnectionManager conMan = new ConnectionManager();
- 
+		
+		/*ConnectionManager conMan = new ConnectionManager();
+		 
 		//patientMan = conMan.getPatientMan();
 		//p = patientMan.getPatientByEmail(email);
+		*/
 		
 		Patient p = new Patient(2,"Maria", "Carrasco", new Date(), "email"); //HAY QUE ALMACENAR PACIENTES EN BASE DE DATOS
 		while (true) {
