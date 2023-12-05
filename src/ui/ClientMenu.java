@@ -41,6 +41,7 @@ public abstract class ClientMenu {
 					//macAddress = "20:17:11:20:51:27"
 					int minutes = Utilities.readInteger("   Duration: ");
 					p.recordBitalinoData(macAddress); //IMPLEMENTAR DURACION
+					
 					break;
 				}
 				case 2: {
