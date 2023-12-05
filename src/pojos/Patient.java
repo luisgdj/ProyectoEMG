@@ -3,7 +3,6 @@ package pojos;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -26,6 +25,15 @@ public class Patient {
 	private LinkedList<String> symptoms;
 	private Frame[] frame;
 
+	public Patient(String name, String surname, Date dob, String email) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.dob = dob;
+		this.email = email;
+		this.symptoms = new LinkedList<>();
+	}
+	
 	public Patient(Integer id, String name, String surname, Date dob, String email) {
 		super();
 		this.id = id;
@@ -108,7 +116,7 @@ public class Patient {
 	
 	public File almacenarDatosEnFichero() throws FileNotFoundException {
 		
-		Date date = Date.valueOf(LocalDate.now());
+		Date date = (Date) java.sql.Date.valueOf(LocalDate.now());
 		long time = date.getTime();
 		File file = new File("misc\\" + name + "_" + surname + "-" + date + "(" + time + ").txt");
 		
