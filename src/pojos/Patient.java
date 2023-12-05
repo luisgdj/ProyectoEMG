@@ -36,6 +36,16 @@ public class Patient {
 		this.symptoms = new LinkedList<>();
 	}
 	
+	public Patient(String name, String surname, Date dob, String email, LinkedList<String> s) {
+		super();
+		
+		this.name = name;
+		this.surname = surname;
+		this.dob = dob;
+		this.email = email;
+		this.symptoms = new LinkedList<>();
+	}
+	
 	public Patient(Integer id, String name, String surname, Date dob, String email, LinkedList<String> s, Frame[] f) {
 		super();
 		this.name = name;
