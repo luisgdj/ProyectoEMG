@@ -26,7 +26,7 @@ public class Patient {
 	private LinkedList<String> symptoms;
 	private Frame[] frame;
 
-	public Patient(Integer id, String name, String surname, String condition, Date dob, String email) {
+	public Patient(Integer id, String name, String surname, Date dob, String email) {
 		super();
 		this.id = id;
 		this.name = name;
