@@ -59,6 +59,7 @@ public abstract class ClientMenu {
 					//enviar datos (file) al servidor
 					try {
 						file = p.almacenarDatosEnFichero();
+						sendDataToServer(file);
 					} catch (FileNotFoundException e) {
 						System.out.println("ERROR: No data has been recorded yet.");
 					}
@@ -84,20 +85,17 @@ public abstract class ClientMenu {
 	}
 
 	//OPTION 2:
-	private static File sendDataToServer() {
+	private static void sendDataToServer(File file) {
 		//Sent file to server:
 		String serverIP = "10.60.85.53";
-		File file = new File("/misc/FileForServer.txt");
 		int port = 9000;
 		try {
 			Socket socket = new Socket(serverIP, port);
 		    ClientTCP server = new ClientTCP(socket, file);
-		    return file;
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
 }
