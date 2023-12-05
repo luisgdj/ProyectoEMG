@@ -17,7 +17,7 @@ public abstract class ClientMenu {
 
 	private static PatientManager patientMan;
 	private static Patient p;
-	
+	 
 	public static void menu(String email) {
 
 		File file = null;
