@@ -137,9 +137,9 @@ public class Patient {
 			pw.println(" -" + s);
 		}
 		pw.println("Bitalino recorded data:");
-		for (Frame frame : frame) {
-			pw.println(" " + frame.seq);
-		}
+		//for (Frame frame : frame) {
+		//	pw.println(" " + frame.seq);
+		//}
 		return file;
 		
 		/*
