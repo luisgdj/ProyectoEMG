@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.time.LocalDate;
+import java.util.Date;
 
 import dataBaseManager.ConnectionManager;
 import ifaces.PatientManager;
@@ -24,12 +26,12 @@ public abstract class ClientMenu {
 	public static void menu(String email) {
 
 		File file = null;
-		ConnectionManager conMan = new ConnectionManager();
+		//ConnectionManager conMan = new ConnectionManager();
  
-		patientMan = conMan.getPatientMan();
-		p = patientMan.getPatientByEmail(email);
+		//patientMan = conMan.getPatientMan();
+		//p = patientMan.getPatientByEmail(email);
 		
-		Patient p = null; //HAY QUE ALMACENAR PACIENTES EN BASE DE DATOS
+		Patient p = new Patient(1,"lucia", "davalos", new Date(), "email"); //HAY QUE ALMACENAR PACIENTES EN BASE DE DATOS
 		while (true) {
 			//ALS: Amyotrophic Lateral Sclerosis (ELA)
 			System.out.println("\nPatient ALS diagnostic menu: (patient: " + email + ")" 
