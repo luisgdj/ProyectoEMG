@@ -17,16 +17,9 @@ public class ClientTCP implements Runnable {
 	 
 	public ClientTCP(Socket socket, File file) throws SocketException {
 		//serverIP = "10.60.85.53"
-		//port = 9000
-		
-		
-		
-		
-		
-		
+		//port = 900
 		this.socket = socket;
 	    this.file = file;
-	    
 	}
 	 
 	@Override
@@ -38,6 +31,7 @@ public class ClientTCP implements Runnable {
 	
 		        int character;
 		        while ((character = br.read()) != -1) {
+		        	System.out.println((char) character);
 		            outputStream.write(character);
 		            outputStream.flush();
 		            try {
