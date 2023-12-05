@@ -1,3 +1,10 @@
 /dataBaseManager/
+<<<<<<< HEAD
 /pojos/
+=======
+/BITalino/
+/ifaces/
+/pojos/
+/threads/
+>>>>>>> branch 'master' of https://github.com/luisgdj/ProyectoEMG
 /ui/
