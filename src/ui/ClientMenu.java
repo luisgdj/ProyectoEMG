@@ -19,7 +19,7 @@ public abstract class ClientMenu {
 
 		File file = null;
 		ConnectionManager conMan = new ConnectionManager();
-
+ 
 		patientMan = conMan.getPatientMan();
 		p = patientMan.getPatientByEmail(email);
 		
