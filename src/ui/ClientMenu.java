@@ -87,11 +87,11 @@ public abstract class ClientMenu {
 	//OPTION 2:
 	private static void sendDataToServer(File file) {
 		//Sent file to server:
-		String serverIP = "10.60.85.53";
+		String serverIP = "10.60.84.189";
 		int port = 9000;
 		try {
 			Socket socket = new Socket(serverIP, port);
-		    ClientTCP server = new ClientTCP(socket, file);
+		    ClientTCP client = new ClientTCP(socket, file);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
