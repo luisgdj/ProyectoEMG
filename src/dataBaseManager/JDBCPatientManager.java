@@ -24,7 +24,7 @@ public class JDBCPatientManager implements PatientManager {
 	}
 
 	@Override
-	public void insertNurse(Patient patient) {
+	public void insertPatient(Patient patient) {
 
 		try {
 			String sql = "INSERT INTO patient (name, surname, email, dob)" + " VALUES (?,?,?,?)";

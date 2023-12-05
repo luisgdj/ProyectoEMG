@@ -5,7 +5,7 @@ import pojos.Patient;
 
 public interface PatientManager {
 
-	public void insertNurse(Patient patient);
+	public void insertPatient(Patient patient);
 	public Patient getPatient(int id);
 	public Patient getPatientByEmail(String email);
 	
