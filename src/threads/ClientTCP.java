@@ -18,6 +18,12 @@ public class ClientTCP implements Runnable {
 	public ClientTCP(Socket socket, File file) throws SocketException {
 		//serverIP = "10.60.85.53"
 		//port = 9000
+		
+		
+		
+		
+		
+		
 		this.socket = socket;
 	    this.file = file;
 	    

@@ -18,11 +18,6 @@ public abstract class ClientMenu {
 	private static PatientManager patientMan;
 	private static Patient p;
 	
-	public static void main(String[] Args) {
-		menu("email");
-
-	}
-	
 	public static void menu(String email) {
 
 		File file = null;
@@ -31,7 +26,7 @@ public abstract class ClientMenu {
 		//patientMan = conMan.getPatientMan();
 		//p = patientMan.getPatientByEmail(email);
 		
-		Patient p = new Patient(1,"lucia", "davalos", new Date(), "email"); //HAY QUE ALMACENAR PACIENTES EN BASE DE DATOS
+		Patient p = new Patient(2,"Maria", "Carrasco", new Date(), "email"); //HAY QUE ALMACENAR PACIENTES EN BASE DE DATOS
 		while (true) {
 			//ALS: Amyotrophic Lateral Sclerosis (ELA)
 			System.out.println("\nPatient ALS diagnostic menu: (patient: " + email + ")" 

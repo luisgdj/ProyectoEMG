@@ -19,8 +19,8 @@ public abstract class LogInMenu {
 			String password = Utilities.readString(" -Password: ");
 
 			User user = userMan.logIn(username, password);
-			// User user = userMan.logIn("server", "default0", "server@hospital.com");
-			
+			// User server = userMan.logIn("server", "default0", "server@hospital.com");
+			// User client = userMan.logIn("client", "default0", "server@hospital.com");
 			if (user != null) {
 				if (user.getRole().getName().equals("server")) {
 					ServerMenu.menu();

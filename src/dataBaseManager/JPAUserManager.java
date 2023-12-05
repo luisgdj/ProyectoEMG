@@ -33,6 +33,11 @@ public class JPAUserManager implements UserManager {
 			register(user);
 			Role role = getRole("server");
 			assignRole(user, role);
+			
+			User user2 = new User("client", "default0", "client@hospital.com");
+			register(user2);
+			Role role2 = getRole("client");
+			assignRole(user2, role2);
 		}
 	}
 
